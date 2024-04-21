@@ -1,3 +1,4 @@
+import { URL, fileURLToPath } from 'url'
 import vuetify from 'vite-plugin-vuetify'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
@@ -14,6 +15,14 @@ export default defineNuxtConfig({
 	},
 	vite: {
 		plugins: [vuetify()],
+		resolve: {
+			alias: {
+				'~': fileURLToPath(new URL('./client/', import.meta.url)),
+				'@': fileURLToPath(new URL('./client/', import.meta.url)),
+				'~~': fileURLToPath(new URL('./', import.meta.url)),
+				'@@': fileURLToPath(new URL('./', import.meta.url)),
+			},
+		},
 	},
 	modules: ['@nuxtjs/apollo', ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }]],
 })

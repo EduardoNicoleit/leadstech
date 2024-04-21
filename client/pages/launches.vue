@@ -6,4 +6,3 @@ import LaunchesView from '../components/organisms/LaunchesView.vue'
 		<LaunchesView />
 	</ClientOnly>
 </template>
-../components/organisms/LaunchesView.vue
